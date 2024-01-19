@@ -11,6 +11,34 @@ void init_code()
         freopen("output.txt", "w", stdout);
         #endif 
     }
+/*
+    According to the theorem , if num &  p are co-prime , then { modInverse(b) = power(b,p-2)  }
+*/
+
+int modInverse(int num,int p)
+{
+     return power(num,p-2,p);
+}
+
+
+int power(int a,int b,int mod)
+{
+	int res=1;
+	while(b)
+	{
+		if(b&1)
+		{
+			res=(res*a)%mod;
+			b--;
+		}
+		else
+		{
+			a=(a*a)%mod;
+			b/=2;
+		}
+	}
+	return res;
+}
 // Time Complexity O(sqrt(n))
 bool is_prime(int n)
 {
@@ -93,21 +121,3 @@ void sieve_prime_factor(int n)
 
 }
 
-int power(int a,int b,int mod)
-{
-	int res=1;
-	while(b)
-	{
-		if(b&1)
-		{
-			res=(res*a)%mod;
-			b--;
-		}
-		else
-		{
-			a=(a*a)%mod;
-			b/=2;
-		}
-	}
-	return res;
-}
