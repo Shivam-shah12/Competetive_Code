@@ -15,15 +15,15 @@ void init_code()
     According to the theorem , if num &  p are co-prime , then { modInverse(b) = power(b,p-2)  }
 */
 
-int modInverse(int num,int p)
+long long modInverse(long long num,int p)
 {
      return power(num,p-2,p);
 }
 
 
-int power(int a,int b,int mod)
+long long power(long long a,long long b,long long mod)
 {
-	int res=1;
+	long long res=1;
 	while(b)
 	{
 		if(b&1)
@@ -39,6 +39,24 @@ int power(int a,int b,int mod)
 	}
 	return res;
 }
+
+long long nCr(int n,int r)
+{
+  if(n<r)
+     return 0;
+  if(r==0)
+      return 1;
+  vector<int>fac(n+1,0);
+  fac[0]=1;
+  for(int i=1;i<=n;i++)
+  {
+    fac[i]=fac[i-1]*i;
+  }
+
+  return fac[n] * modInverse(fac[r],mod)%mod * modInverse(fac[n-r],mod)%mod;
+}
+
+
 // Time Complexity O(sqrt(n))
 bool is_prime(int n)
 {
