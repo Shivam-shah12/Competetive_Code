@@ -27,6 +27,7 @@ int Majority(vector<int>&nums,int size)
       // jitne alg alg candidate bhi toh iska mtlb vo
       // majority nhi ho skta
       // --> then choose new Majority element
+      count=1;
       curr_major_ind=ind;
       ind++;
     }
