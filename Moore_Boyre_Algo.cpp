@@ -1,17 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 int Majority(vector<int>&nums,int size)
 {
   int count=1;
   int curr_major_ind=0;
-  int ind=1;
-  while(ind<size)
+
+  for(int ind=1;ind<size;ind++)
   {
     if(nums[curr_major_ind]==nums[ind])
     {
       count++;
-      ind++;
     }
     else
     {
@@ -29,7 +27,6 @@ int Majority(vector<int>&nums,int size)
       // --> then choose new Majority element
       count=1;
       curr_major_ind=ind;
-      ind++;
     }
   }
   int cnt=0;
@@ -58,6 +55,7 @@ int main()
  
   return 0;
 }
+
 
 
 
