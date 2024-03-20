@@ -20,6 +20,12 @@ long long modInverse(long long num,int p)
      return power(num,p-2,p);
 }
 
+// Best ways to used mod --> function of mod
+int m=1e9;
+int mod(int x)
+{
+return ((x % m)+m)%m;
+}
 
 long long power(long long a,long long b,long long mod)
 {
